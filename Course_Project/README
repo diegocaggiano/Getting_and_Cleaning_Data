@@ -9,4 +9,8 @@ Then it creates a dataset named "DF" containing the information metioned above a
 with the average of each variable for each activity and each subject.
 Finally, both datasets are written to files "DF.txt" and "DF_avg.txt" in the current directory 
 
+- Code_Book.txt
+It contains general information about the DF_avg dataset
 
+- Fields.xlsx
+It shows detailed information about every field contained in the file DF_avg.txt
