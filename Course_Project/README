@@ -1,7 +1,7 @@
 You can find here the following files:
 
 - run_analysis.R
-This script merges the training and test Samsung sets to create one data set.
+This script merges the training and test Samsung datasets contained in the "UCI HAR Dataset" folder, to create a new data set.
 It extracts only the measurements on the mean and standard deviation for each measurement.
 It uses descriptive activity names to name the activities in the data set and also transforms labels to descriptive variable names, 
 by supressing special characters.
