@@ -1,9 +1,9 @@
 You can find here the following files:
 
 - run_analysis.R
-This script Merges the training and the test sets to create one data set.
+This script merges the training and test Samsung sets to create one data set.
 It extracts only the measurements on the mean and standard deviation for each measurement.
-It uses descriptive activity names to name the activities in the data set and transforms labels to descriptive variable names, 
+It uses descriptive activity names to name the activities in the data set and also transforms labels to descriptive variable names, 
 by supressing special characters.
 Then it creates a dataset named "DF" containing the information metioned above and also creates a second data set named "DF_avg"
 with the average of each variable for each activity and each subject.
