@@ -1,4 +1,13 @@
-setwd("C:\\Data_Science\\Getting and Cleaning Data\\Course_Project\\UCI HAR Dataset")
+#This program:
+#Merges the training and the test sets to create one data set.
+#Extracts only the measurements on the mean and standard deviation for each measurement.
+#Uses descriptive activity names to name the activities in the data set
+#Transforms labels to descriptive variable names, by supressing special characters
+#Creates a dataset named "DF" containing the information metioned above
+#Creates a second data set named "DF_avg" with the average of each variable for each activity 
+#and each subject.
+#Finally, both datasets are written to files "DF.txt" and "DF_avg.txt" in the current directory 
+
 
 # Including libraries
 library(readr)
@@ -17,9 +26,9 @@ avector3<- gsub("\\(", "", avector2)
 avector4<- gsub("\\)", "", avector3)
 # Substitute character "," by "_" in description
 avector5<- gsub("\\,", "_", avector4)
-# Substitute the initial 't' by the word 'time'
+# Substitute the initial 't' by the word 'time_'
 avector6<- gsub("^t", "time_", avector5)
-# Substitute the initial 'f' by the word 'frequency'
+# Substitute the initial 'f' by the word 'frequency_'
 avector7<- gsub("^f", "frequency_", avector6)
 # after these changes, for instance, the variable name "fBodyGyro-bandsEnergy()-1,24" was changed to "frequency_BodyGyro_bandsEnergy_1_24"
 var_names_vector <- avector7
@@ -54,17 +63,20 @@ df_std  <- select(X_total, selected_variables_std)
 # Creating the whole dataset showing: activity description, subject ID and all the variables related to mean and std
 DF <- cbind(select(activities, "Activity_Description"), subject_total, df_mean, df_std)
 
+# Creating file with output dataset
+if (file.exists("DF.txt")) file.remove("DF.txt")	
+write.table(DF, "DF.txt", row.names = FALSE)
+
+
 # Grouping dataset by Activity Description and Subject ID
-DF_grouped <- group_by(DF, DF$Activity_Description, DF$Subject_ID)
+DF_grouped <- group_by(DF, Activity_Description, Subject_ID)
 
 # Summarising data set
 selected_fields <- append(selected_variables_mean, selected_variables_std)
 DF_avg <- summarise_at(DF_grouped,selected_fields, mean) 
 
-# Creating file with output dataset
-if (file.exists("DF_avg.txt") {
-	file.remove("DF_avg.txt")	
-}
+# Creating summarised file with output dataset
+if (file.exists("DF_avg.txt")) file.remove("DF_avg.txt")	
 write.table(DF_avg, "DF_avg.txt", row.names = FALSE)
 
 

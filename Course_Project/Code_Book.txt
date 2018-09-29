@@ -1,0 +1,14 @@
+Code Book
+=================
+
+This dataset contains information about different activities performed by a set of 30 subjects.
+Every subject was assigned a number from 1 to 30.
+The following activities were measured:	Walking, Walking upstairs, Walking downstairs, 	Sitting, Standing, Laying
+For every activity, many different measurements were taken using accelerometer and gyroscope 3-axial raw signals.
+Some measurements were calculated as mean values and others as standard deviation. Their values were normalized and bounded within [-1,1].
+
+As every subject performed the same activity multiple times, the information has been grouped by activity and subject, and every measurement was AVERAGED.
+The dataset is presented as a .txt file with every field separated by a space and the first line corresponding to headers.
+The complete list of fields as well as additional information are available in the file 'Fields.xls'
+
+
